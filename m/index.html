@@ -1,0 +1,57 @@
+<html>
+<head>
+<style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>一起听音乐~</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+</head>
+<body>
+<h1>如果没东西请检查参数</h1>
+<Script language="javascript">
+            function parse_query_string(query) {
+                var vars = query.split("&");
+                var query_string = {};
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    var key = decodeURIComponent(pair[0]);
+                    var value = decodeURIComponent(pair[1]);
+                    if (typeof query_string[key] === "undefined") {
+                            query_string[key] = decodeURIComponent(value);
+                    } else if (typeof query_string[key] === "string") {
+                        var arr = [query_string[key], decodeURIComponent(value)];
+                        query_string[key] = arr;
+                    } else {
+                        query_string[key].push(decodeURIComponent(value));
+                    }
+                }
+                return query_string;
+            }
+
+            var query = window.location.search.substring(1);
+            var qs = parse_query_string(query);
+var moth = qs.moth;
+if(moth==null){
+var moth = "netease";
+}
+console.log(moth);
+var id = qs.id;
+if(id==null){
+var id = "2003734815";
+}
+console.log(id);
+var a = '<div><meting-js preload="auto" theme="66ccff" order="random" list-max-height="480px" server="'+ moth +'" type="playlist" autoplay="true" id="'+ id +'"></div>';
+document.write(a)
+</script>
+</body>
+</html>
