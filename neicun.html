@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>在线烤内存</title>
+</head>
+<body>
+<h1>点击确认开始</h1>
+<button onclick="a()">确认</button>
+<script>
+function a(){
+var i = 0;
+var time=0;
+while(i < 50){
+setTimeout(function(){
+console.log('第'+i+'次');
+console.log('延时500\n'+1000);
+document.write('<br>第'+i+'次');
+time=time+1000;
+},500);
+}
+}
+</script>
+</body>
+</html>
