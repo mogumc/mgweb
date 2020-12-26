@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>在线烤内存</title>
+</head>
+<body>
+<h1>点击确认开始</h1>
+<button onclick="a()">确认</button>
+<script>
+function parse_query_string(query) {
+var vars = query.split("&");
+var query_string = {};
+for (var i = 0; i < vars.length; i++) {
+var pair = vars[i].split("=");
+var key = decodeURIComponent(pair[0]);
+var value = decodeURIComponent(pair[1]);
+if (typeof query_string[key] === "undefined") {
+query_string[key] = decodeURIComponent(value);
+} else if (typeof query_string[key] === "string") {
+var arr = [query_string[key], decodeURIComponent(value)];
+query_string[key] = arr;
+} else {
+query_string[key].push(decodeURIComponent(value));
+}
+}
+return query_string;
+}
+
+var query = window.location.search.substring(1);
+var qs = parse_query_string(query);
+var moth = qs.moth; 
+function a(){
+var i = 0;
+var time=0;
+while(i < 50){
+setTimeout(function(){
+console.log('第'+i+'次');
+console.log('延时500\n'+time);
+document.write('<br>第'+i+'次');
+time=time+1000;
+},500);
+}
+}
+if(moth="1"){
+a();
+}
+</script>
+</body>
+</html>
