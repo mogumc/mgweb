@@ -40,6 +40,21 @@
 
             var query = window.location.search.substring(1);
             var qs = parse_query_string(query);
+var url = qs.url;
+console.log(url);
+var bg = qs.bg;
+console.log(bg);
+var singer = qs.singer;
+console.log(singer);
+var name = qs.name;
+console.log(name);
+var auto = qs.auto;
+console.log(auto);
+var re = "random";
+if(auto=="0"){
+var re = "list";
+};
+if(url==null){
 var moth = qs.moth;
 if(moth==null){
 var moth = "netease";
@@ -50,8 +65,12 @@ if(id==null){
 var id = "2003734815";
 }
 console.log(id);
-var a = '<div><meting-js preload="auto" theme="66ccff" order="random" list-max-height="480px" server="'+ moth +'" type="playlist" autoplay="true" id="'+ id +'"></div>';
-document.write(a)
+var a = '<div><meting-js preload="auto" theme="66ccff" order="'+ re +'" list-max-height="480px" server="'+ moth +'" type="playlist" autoplay="true" id="'+ id +'"></div>';
+};
+if(url!=null){
+var a = '<div><meting-js preload="auto" theme="66ccff" list-max-height="480px" name="'+ name +'" artist="'+ singer +'" url="'+ url +'" cover="'+ bg +'""></div>';
+};
+document.write(a);
 </script>
 </body>
 </html>
